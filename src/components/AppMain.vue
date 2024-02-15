@@ -11,6 +11,7 @@ import { store } from '../store';
         methods:{
             getProjects(){
                 axios.get(this.store.baseUrl + this.store.apiUrls.projects).then((response)=>{
+                    this.store.projects_list = response.data.data;
                     console.log(response);
                 }).catch((error)=>{
                     console.log(error);
@@ -25,7 +26,9 @@ import { store } from '../store';
 
 <template>
     <main>
-        sono main
+        <div v-for=" projects in this.store.projects_list">
+            {{ projects.title }}
+        </div>
     </main>
 </template>
 
