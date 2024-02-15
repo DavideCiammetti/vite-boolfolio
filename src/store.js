@@ -6,4 +6,5 @@ export const store = reactive({
         projects: '/api/projects',
     },
     projects_list:[],
+    imgUrl: 'http://127.0.0.1:8000/storage/',
 });
