@@ -8,6 +8,7 @@ export const store = reactive({
     },
     // oggetto vuoto per prendere tutti i dati  
     projectsData:{},
+    singleProject: {},
     imgUrl: 'http://127.0.0.1:8000/storage/',
     // parte url per paginazione
     pagination: '?page=',

@@ -1,9 +1,15 @@
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
 
+[v-cloak] {
+    display: none;
+  }
 a{
     text-decoration: none;
 }
 ul{
     list-style: none;
+}
+main{
+    height: 100vw;
 }
