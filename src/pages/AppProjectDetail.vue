@@ -27,12 +27,16 @@
 </script>
 
 <template>
-    <div class="d-flex flex-wrap flex-direction-column justify-content-center gap-4 ">
+   <main>
+        <div class="d-flex flex-wrap flex-direction-column justify-content-center gap-4 ">
               <div class="card" style="width: 18rem;">
                 <img :src="this.store.imgUrl + this.store.singleProject.img" class="card-img-top" :alt="this.store.singleProject.slug + '.img'">
                 <div class="card-body">
-                    <h5 class="card-title">{{ this.store.singleProject.title }}</h5>
-                    <p class="card-text">{{ this.store.singleProject.description }}</p>
+                    <h5 class="card-title">title: {{ this.store.singleProject.title }}</h5>
+                    <p class="card-text">description: {{ this.store.singleProject.description }}</p>
+                    <p class="card-text"  v-for="technology in this.store.singleProject.technologies">type of technology: {{ technology.title}}</p>
+                    <p class="card-text">{{ this.store.singleProject.type.name }}</p>
+                    <!-- button per tornare in lista  -->
                     <button>
                       <router-link :to="{ name: 'project'}" class="nav-link">
                         view details
@@ -41,7 +45,8 @@
                     </button>
                 </div>
             </div>
-          </div>
+        </div>
+   </main>
 </template>
 
 <style>

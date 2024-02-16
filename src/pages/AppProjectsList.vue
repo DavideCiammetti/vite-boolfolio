@@ -43,7 +43,7 @@
         },
         created(){
             this.getProjects();
-        }
+        },
     }
 </script>
 
@@ -60,10 +60,14 @@
           <!-- cards -->
           <div class="d-flex flex-wrap flex-direction-column justify-content-center gap-4 " v-show="!this.loader">
               <div class="card" v-for=" projects in this.store.projectsData.result?.data" style="width: 18rem;">
+                <!-- immagine -->
                 <img :src="this.store.imgUrl + projects.img" class="card-img-top" :alt="projects.slug + '.img'">
                 <div class="card-body">
+                  <!-- titolo -->
                     <h5 class="card-title">{{ projects.title }}</h5>
-                    <p class="card-text">{{ projects.description }}</p>
+                    <!-- descrizione -->
+                    <p class="card-text">{{ projects.description.substring(0, 100) }}</p>
+                    <!-- tipo di tecnologia usata -->
                     <p v-for="technology in projects.technologies" >technologies: {{ technology.title}}</p>
                     <button>
                       <router-link :to="{ name: 'projectDetail', params: { slug: projects.slug }  }" class="nav-link">

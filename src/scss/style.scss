@@ -4,12 +4,15 @@
 [v-cloak] {
     display: none;
   }
+body{
+    height: 100vh;
+}
 a{
     text-decoration: none;
 }
 ul{
     list-style: none;
 }
-main{
-    height: 100vw;
+#app{
+    height: 100%;
 }

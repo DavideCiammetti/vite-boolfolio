@@ -5,6 +5,9 @@
 </script>
 
 <template>
+    <main>
+      about
+    </main>
 </template>
 
 <style>

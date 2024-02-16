@@ -5,7 +5,9 @@
 </script>
 
 <template>
-    home page
+    <main>
+      home page
+    </main>
 </template>
 
 <style>
