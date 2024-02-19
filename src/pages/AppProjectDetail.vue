@@ -21,6 +21,7 @@
             
         },
         created(){
+            
             this.getProject();
         }
     }
@@ -35,7 +36,7 @@
                     <h5 class="card-title">title: {{ this.store.singleProject.title }}</h5>
                     <p class="card-text">description: {{ this.store.singleProject.description }}</p>
                     <p class="card-text"  v-for="technology in this.store.singleProject.technologies">type of technology: {{ technology.title}}</p>
-                    <p class="card-text">{{ this.store.singleProject.type.name }}</p>
+                    <p class="card-text">{{ this.store.singleProject.type?.name }}</p>
                     <!-- button per tornare in lista  -->
                     <button>
                       <router-link :to="{ name: 'project'}" class="nav-link">

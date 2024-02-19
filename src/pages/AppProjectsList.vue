@@ -28,23 +28,59 @@
                     console.log(error);
                 }).finally(()=>{
                   this.loader = false;
+                  this.imgShow = true;
                 });
             },
-            // cambia numero di pagina 
+            // scorri pagine 
             nextPage(){
-              this.currClick++;
+              // validazione lo scorrimento delle pagine non oltre il numero max delle pagine
+              if(this.currClick >=  this.store.projectsData.result.last_page){
+
+                this.currClick = this.store.projectsData.result.last_page
+              }else{
+                this.currClick++;
+              }
+  
+              this.$router.push({
+              name: 'project',
+              query: {
+                page: this.currClick,
+              },
+            });
               this.getProjects();
               console.log(this.currClick);
             },
+             // scorri pagine 
             prevPage(){
-              this.currClick--;
+               // validazione lo scorrimento delle pagine non oltre il numero min delle pagine
+              if(this.currClick <= 1){
+
+                this.currClick = 1
+              }else{
+                this.currClick--;
+              }
+      
+              this.$router.push({
+                name: 'project',
+                query: {
+                  page: this.currClick,
+                },
+              });
               this.getProjects();
               console.log(this.currClick);
             }
         },
         created(){
+            this.currClick = this.$route.query.page ?? 1;
+
             this.getProjects();
-        },
+
+            this.$watch(() => this.$route.params,(toParams, previousParams) => {
+            this.currClick = this.$route.query.page ?? 1;
+            this.getProjects();
+          }
+        );
+      },
     }
 </script>
 
@@ -62,7 +98,9 @@
           <div class="d-flex flex-wrap flex-direction-column justify-content-center gap-4 " v-show="!this.loader">
               <div class="card" v-for=" projects in this.store.projectsData.result?.data" style="width: 18rem;">
                 <!-- immagine -->
-                <img :src="this.store.imgUrl + projects.img" class="card-img-top" :alt="projects.slug + '.img'">
+                <div v-if="/\.(jpg$|png$|svg$|jpeg$)/i.test(projects.img)">
+                  <img :src="this.store.imgUrl + projects.img" class="card-img-top" :alt="projects.slug + '.img'">
+                </div>
                 <div class="card-body">
                   <!-- titolo -->
                     <h5 class="card-title">{{ projects.title }}</h5>
