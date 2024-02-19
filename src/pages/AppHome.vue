@@ -5,10 +5,13 @@
 </script>
 
 <template>
-    <main>
+    <main class="home-main">
       home page
     </main>
 </template>
 
-<style>
+<style scoped lang="scss">
+.home-main{
+    height: 100%;
+}
 </style>

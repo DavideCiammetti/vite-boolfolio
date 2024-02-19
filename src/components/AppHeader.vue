@@ -5,20 +5,17 @@
 </script>
 
 <template>
-    <header class="bg-primary py-3">
-        <nav class="d-flex justify-content-around">
-            <div>
-                logo
-            </div>
-            <ul class="d-flex ">
-                <li>
-                    <router-link class="text-white fs-5" :to="{name: 'home'}">Home</router-link>
+    <header class="bg-primary pe-2 position-fixed">
+        <nav class="">
+            <ul class="d-flex flex-column justify-content-around">
+                <li class="mt-2">
+                    <router-link class="text-white fs-6" :to="{name: 'home'}">Home</router-link>
                 </li>
-                <li class="mx-5">
-                    <router-link class="text-white fs-5" :to="{name: 'project'}">Projects List</router-link>
+                <li class="my-3">
+                    <router-link class="text-white fs-6" :to="{name: 'project'}">Projects List</router-link>
                 </li>
                 <li>
-                    <router-link class="text-white fs-5" :to="{name: 'about'}">About</router-link>
+                    <router-link class="text-white fs-6" :to="{name: 'about'}">About</router-link>
                 </li>
                 
             </ul>
@@ -26,5 +23,18 @@
     </header>
 </template>
 
-<style>
+<style scoped lang="scss">
+// @use '../style/partials/_responsive.scss' as *;
+header{
+    right: 0;
+    height: 205px;
+    nav{
+        height: 100%;
+
+        ul{
+            height: 100%;
+        }
+    }
+}
+
 </style>

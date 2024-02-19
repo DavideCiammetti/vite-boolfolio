@@ -21,7 +21,11 @@
 
                       } else {
                         // redirect alla pagina 404
-                        this.$router.push({ name: 'NotFound' })
+                        this.$router.push({ name: 'NotFound' });
+                      }
+                      // redirect alla pagina no found project in caso di progetti non trovati
+                      if((this.store.projectsData.result.data).length <= 0){
+                          this.$router.push({ path: '/no-project-found'})
                       }
                     console.log(response);
                 }).catch((error)=>{
