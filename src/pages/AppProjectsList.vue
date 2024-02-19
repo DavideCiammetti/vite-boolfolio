@@ -15,6 +15,7 @@
             getProjects(){
               this.loader = true;
                 axios.get(this.store.baseUrl + this.store.apiUrls.projects + this.store.pagination + this.currClick).then((response)=>{
+                  console.log(response);
                   if (response.data.status === true) {
                         this.store.projectsData = response.data;
 
@@ -81,11 +82,11 @@
           <!-- button next e prev  -->
           <div class="d-flex justify-content-between mx-4 mt-4">
             <div>
-              <button type="button" class="btn btn-primary" @click="prevPage()" v-show="this.store.projectsData.data?.prev_page_url">preview</button>
+              <button type="button" class="btn btn-primary" @click="prevPage()" v-show="this.store.projectsData.result?.prev_page_url">preview</button>
             </div>
 
             <div>
-              <button type="button" class="btn btn-secondary" @click="nextPage()" v-show="this.store.projectsData.data?.next_page_url">next</button>
+              <button type="button" class="btn btn-secondary" @click="nextPage()" v-show="this.store.projectsData.result?.next_page_url">next</button>
             </div>
           </div>
       </div>
