@@ -3,20 +3,17 @@
 
 [v-cloak] {
     display: none;
-  }
+  } 
 body{
-    height: 100vh;
-    position: relative;
+    background: linear-gradient(
+    to right,
+    rgb(0, 151, 68) 0%,
+    rgb(5 187 172) 70%
+  );
 }
 a{
     text-decoration: none;
 }
-main{
-    height: 100%;
-}
 ul{
     list-style: none;
-}
-#app{
-    height: 100%;
 }

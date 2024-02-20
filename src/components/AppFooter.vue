@@ -12,5 +12,8 @@
     </footer>
 </template>
 
-<style>
+<style scoped lang="scss">
+footer{
+    background: linear-gradient(to right, rgb(0, 151, 68) 0%, rgb(5, 187, 172) 70%);
+}
 </style>

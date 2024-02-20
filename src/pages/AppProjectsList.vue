@@ -89,9 +89,9 @@
 </script>
 
 <template>
-    <main class="my-5">
+    <main class="">
       <div>
-          <h2 class="ms-4">
+          <h2 class="text-center">
             lista dei projetti
           </h2>
           <!-- error advertise -->
@@ -109,10 +109,19 @@
                   <!-- titolo -->
                     <h5 class="card-title">{{ projects.title }}</h5>
                     <!-- descrizione -->
+                   <div v-if="projects.description">
                     <p class="card-text">{{ projects.description.substring(0, 100) }}</p>
+                   </div>
                     <!-- tipo di tecnologia usata -->
-                    <p v-for="technology in projects.technologies" >technologies: {{ technology.title}}</p>
-                    <button>
+                    <div class="mt-2">
+                      <p class="fs-5 bold mb--2">technologies: </p>
+                      <ul>
+                        <li v-for="technology in projects.technologies">
+                          {{ technology.title}}
+                        </li>
+                      </ul>
+                    </div>
+                    <button class="button-show-details">
                       <router-link :to="{ name: 'projectDetail', params: { slug: projects.slug }  }" class="nav-link">
                         view details
                       </router-link>
@@ -135,5 +144,23 @@
     </main>
 </template>
 
-<style>
+<style scoped lang="scss">
+.mb--2{
+  margin-bottom: -5px;
+}
+
+h2{
+    font-size: 57px;
+    text-transform: uppercase;
+    color: #005260;
+}
+.button-show-details{
+  border: none;
+  background-color: rgb(64 182 117);
+  font-size: 14px;
+  color: white;
+}
+.button-show-details:hover{
+  background-color: rgb(0, 129, 56);
+}
 </style>
